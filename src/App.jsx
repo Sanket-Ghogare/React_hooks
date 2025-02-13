@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from "react";
+import React, { useState, useReducer, createContext } from "react";
 import "./App.css";
 import HookCounter from "./HookCounter";
 import HookCounter3 from "./HookCounter3";
@@ -18,12 +18,16 @@ import Parentcomponents from "./Usecallback/Parentcomponenet";
 import Counter from "./Usememohook/Counter";
 import Focusinput from "./Useref_Hook/Focusinput";
 import UseRefs from "./Useref_Hook/UseRef";
-import StopWatch from"./Useref_Hook/Stopwatch";
+import StopWatch from "./Useref_Hook/Stopwatch";
+import Memo1 from "./UseMemo_hook/Memo1";
+import Parentcall from "./Usecallback_hook-2/Parentcall";
+import Context1 from "./Context_hook-2/Context1";
+import TimerComp from "./UseEffect_hook/TimerCompo";
 export const userContext = React.createContext();
 export const ChannelContext = React.createContext();
 
 export const CounterContext = React.createContext();
-
+ const ThemeContext = createContext();
 function App() {
   const [add, SetAdd] = useState(0);
   const [count, setCount] = useState(10);
@@ -42,6 +46,9 @@ function App() {
     }
   };
   const [count1, dispatch] = useReducer(reducer, initialState);
+  const [theme, setTheme] = useState("light");
+
+
   return (
     <>
       <div className="text-white h-screen bg-black text-center items-center justify-center">
@@ -84,32 +91,51 @@ function App() {
           <Usereducer1 />
         </CounterContext.Provider> */}
 
-
-     {/* usecallback hook */}
-     {/* <div className="text-white  bg-black text-center items-center justify-center">
+        {/* usecallback hook */}
+        {/* <div className="text-white  bg-black text-center items-center justify-center">
      <Parentcomponents/>
      </div> */}
 
-{/* usememo hook */}
-     {/* <div className="text-white">
+        {/* usememo hook */}
+        {/* <div className="text-white">
      <Counter/>
      </div> */}
-     
 
-  {/* useref hook
-   */}
-   
-   {/* <div className="">
+        {/* useref hook
+         */}
+
+        {/* <div className="">
     <Focusinput/>
      </div> */}
-     <div className=''>
+        {/* <div className=''>
      <UseRefs/>
      <StopWatch/>
-     </div>
-    
+     </div> */}
+
+        {/* UseMemo Hook */}
+
+        {/* <Memo1 /> */}
+
+        {/* UseCall back Hook  */}
+
+        {/* <Parentcall/> */}
+
+        {/* USeCOntext_Hook2 */}
+        {/* <ThemeContext.Provider value={{theme,setTheme}}>
+          <div id ='container' style={{background:theme==='light'?"beige":"black"}}>
+          <Context1 />
+          </div>
+        
+        </ThemeContext.Provider> */}
+
+
+
+      {/* useEffectHook */}
+      <TimerComp/>
       </div>
     </>
   );
 }
 
-export default App;
+export default App
+export {ThemeContext}
