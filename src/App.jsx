@@ -23,6 +23,8 @@ import Memo1 from "./UseMemo_hook/Memo1";
 import Parentcall from "./Usecallback_hook-2/Parentcall";
 import Context1 from "./Context_hook-2/Context1";
 import TimerComp from "./UseEffect_hook/TimerCompo";
+import StateLifting from "./State_Lifting/StateLifting";
+import Eventhandle1 from "./EventHandling/Eventhandle1";
 export const userContext = React.createContext();
 export const ChannelContext = React.createContext();
 
@@ -47,6 +49,11 @@ function App() {
   };
   const [count1, dispatch] = useReducer(reducer, initialState);
   const [theme, setTheme] = useState("light");
+  const [name,setName]= useState('');
+// create state
+// manage state
+// chnage state
+// child sync the state
 
 
   return (
@@ -131,7 +138,16 @@ function App() {
 
 
       {/* useEffectHook */}
-      <TimerComp/>
+      {/* <TimerComp/> */}
+
+
+      {/* State LIfting */}
+      {/* <StateLifting value="hello"/> */}
+
+      {/* <StateLifting name={name} setName={setName}/>
+      <p>Inside the parent comp value is name id :{name}</p> */}
+
+      <Eventhandle1/>
       </div>
     </>
   );
